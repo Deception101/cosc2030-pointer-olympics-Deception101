@@ -33,6 +33,7 @@ int main() {
     double average = calculateAverage(scores, numAthletes);
 
     // Award medals
+    awardMedals(scores, numAthletes);
 
     // Display results
 
@@ -73,4 +74,22 @@ void sortScores(double* scores, int numScores)
         }
 
         return sum /numScores;
+    }
+
+    void awardMedals(double* scores, int numScores)
+    {
+        cout << endl << "Medal Winners: " << endl;
+
+        if (numScores >= 1)
+        {
+            cout << "Gold Medal: " << *(scores+ numScores - 1) << endl;
+        }
+        if (numScores >=2)
+        {
+            cout << "Silver Medal: " << *(scores+ numScores - 2) << endl;
+        }
+        if (numScores >=3)
+        {
+            cout << "Bronze Medal: " << *(scores+ numScores - 3) << endl;
+        }
     }
