@@ -36,8 +36,11 @@ int main() {
     awardMedals(scores, numAthletes);
 
     // Display results
+displayResults(scores,numAthletes,average);
 
     // Deallocate memory for scores array
+delete[] scores;
+scores = nullptr;
 
     return 0;
 }
@@ -92,4 +95,17 @@ void sortScores(double* scores, int numScores)
         {
             cout << "Bronze Medal: " << *(scores+ numScores - 3) << endl;
         }
+    }
+
+
+    void displayResults(double* scores, int numScores, double average)
+    {
+        cout << endl << "Sorted Scores:" << endl;
+
+        for (int i = 0; i < numScores; i++)
+        {
+            cout <<"Score for athlete " << (i + 1) << ": " << *(scores+i) << endl;
+        }
+
+        cout << endl << "Average Score: " << fixed << setprecision(2) << average << endl;
     }
