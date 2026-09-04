@@ -17,7 +17,15 @@ int main() {
 
     // Dynamically allocate array for scores
 
+    double* scores = new double[numAthletes];
+
     // Get scores from user
+    cout << "Enter the scores of the athletes: " << endl;
+    for (int i = 0; i <numAthletes; i++)
+    {
+        cout << "Scores for athlete "<< (i + 1) << ": ";
+        cin >> *(scores + i);
+    }
 
     // Sort scores
 
