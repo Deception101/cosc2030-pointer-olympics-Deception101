@@ -28,8 +28,9 @@ int main() {
     }
 
     // Sort scores
-
+    sortScores(scores, numAthletes);
     // Calculate average score
+    double average = calculateAverage(scores, numAthletes);
 
     // Award medals
 
@@ -39,3 +40,37 @@ int main() {
 
     return 0;
 }
+
+void sortScores(double* scores, int numScores)
+{
+    for (int i= 0; i < numScores - 1; i++)
+    {
+        int minIndex = i;
+
+        for(int j=i+1; j < numScores; j++){
+            if (*(scores +j) < *(scores + minIndex))
+            {
+                minIndex=j;
+            }
+        }
+        
+        if (minIndex != i)
+        {
+            double temp = *(scores + i);
+            *(scores + i) = *(scores + minIndex);
+            *(scores + minIndex) = temp;
+        }
+    }
+}
+
+    double calculateAverage(double* scores, int numScores)
+    {
+        double sum = 0.0;
+
+        for (int i = 0; i < numScores; i++)
+        {
+            sum += *(scores + i);
+        }
+
+        return sum /numScores;
+    }
